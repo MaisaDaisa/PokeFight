@@ -12,7 +12,7 @@ async function fetchPokemon(id) {
 
 
 // DISPLAYING THE POKEMON DATA ----------------------------------------------
-const poke_container = document.querySelector('.poke-container')
+const searched_pokemon = document.querySelector('.searched-pokemon')
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -25,18 +25,16 @@ function display_pokemon(poke) {
         poke_card.id = `poke-${poke.id}`
         const types = poke.types.map(type => type.type.name)
         poke_card.innerHTML = `
-        <div class="pokecard-info">
-            <p>#${poke.id }</p>
-            <h2>${capitalizeFirstLetter(poke.name)}</h2>
-            <div class="poke-elements">
-                ${types.map(type => `<img src="./src/incons/${type}_icon.svg" alt="${type + ' element'}">`).join('')}
-            </div>
-        </div>
-        <div class="pokecard-img">
-            <img src=${poke.sprites.front_default} alt="Pikachu">
-        </div>
+                <img src="${poke.sprites.front_default}" alt="${poke.name+"image"}" class="poke-img">
+                <div class="poke-info">
+                    <p class="pokenum">№ ${poke.id}</p>
+                    <h3 class="pokename">${capitalizeFirstLetter(poke.name)}</h3>
+                    <div class="pokelement">
+                    ${types.map(type => `<img src="./src/incons/${type}_icon.svg" alt="${type + ' element'}">`).join('')}
+                    </div>
+                </div>
         `
-        poke_container.appendChild(poke_card) 
+        searched_pokemon.appendChild(poke_card) 
 
 }
 
@@ -89,7 +87,7 @@ document.addEventListener('click', () => {
 // ADDING A POKEMON ---------------------------------------------------------
 
 const teamAdd = document.querySelector('.team-add')
-const pokemon_team_card = document.querySelectorAll('.pokemon-team-card')
+const team_card = document.querySelectorAll('.team-card')
 const fight_button = document.querySelector('.fight-button button')
 
 let team = []
@@ -99,14 +97,19 @@ addToTeam = () => {
         const id = +chosen_card.id.slice(5)
         if (team.includes(id)) {
             alert('You already have this pokemon in your team')
-            return
         } else {
-            const name = chosen_card.querySelector('h2').innerText
-            const image = chosen_card.querySelector('.pokecard-img img').src
-            pokemon_team_card[team.length].innerHTML = `
-                <img src="${image}" alt="">
-                <div>
-                    <p>${name}</p>
+            const name = chosen_card.querySelector('h3').innerText
+            const image = chosen_card.querySelector('.poke-img').src
+            const pokelement = chosen_card.querySelector('.pokelement').innerHTML
+            console.log(pokelement)
+            team_card[team.length].innerHTML = `
+                <img src="${image}" alt="" class="poke-img">
+                <div class="poke-info">
+                    <p class="pokenum">№ ${id}</p>
+                    <h3 class="pokename">${name}</h3>
+                    <div class="pokelement">
+                        ${pokelement}
+                    </div>
                 </div>
             `
             team.push(id)

@@ -7,64 +7,113 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-
-            <h1>PokeDex</h1>
-        </div>
+    <header class="header-container">
+        <nav>
+            <img class="logo" src="./src/incons/pokeballLogo.svg" alt="">
+            <ul class="navlink-container">
+                <li class="navlink">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="">
+                        HOME
+                    </a>
+                </li>
+                <li class="navlink">
+                    <i class="fa-solid fa-list"></i>
+                    <a href="">
+                        POKEDEX
+                    </a>
+                </li>
+                <li class="navlink">
+                    <i class="fa-solid fa-hand-fist"></i>
+                    <a href="">
+                        FIGHT
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
-
-    <main>
-        <div class="fight-button">
-            <button> FIGHT! </button>
+    <main class="container">
+        <div class="team">
+            <h2>TEAM</h2>
+            <div class="team-card-container">
+                <div class="team-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" class="poke-img">
+                    <div class="poke-info">
+                        <p class="pokenum">№ 132</p>
+                        <h3 class="pokename">Ditto</h3>
+                        <div class="pokelement">
+                            <img src="./src/incons/normal_icon.svg" alt=>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" class="poke-img">
+                    <div class="poke-info">
+                        <p class="pokenum">№ 132</p>
+                        <h3 class="pokename">Ditto</h3>
+                        <div class="pokelement">
+                            <img src="./src/incons/normal_icon.svg" alt=>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" class="poke-img">
+                    <div class="poke-info">
+                        <p class="pokenum">№ 132</p>
+                        <h3 class="pokename">Ditto</h3>
+                        <div class="pokelement">
+                            <img src="./src/incons/normal_icon.svg" alt=>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" class="poke-img">
+                    <div class="poke-info">
+                        <p class="pokenum">№ 132</p>
+                        <h3 class="pokename">Ditto</h3>
+                        <div class="pokelement">
+                            <img src="./src/incons/normal_icon.svg" alt=>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" class="poke-img">
+                    <div class="poke-info">
+                        <p class="pokenum">№ 132</p>
+                        <h3 class="pokename">Ditto</h3>
+                        <div class="pokelement">
+                            <img src="./src/incons/normal_icon.svg" alt=>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fight-button">
+                <button> FIGHT! </button>
+            </div>
         </div>
-        <div class="team-container">
-            <div class="pokemon-team-card">
-                <img src="./src/incons/Pokeball_remix.svg" alt="">
-                <div>
-                    <p>EMPTY</p>
+        <div class="selector">
+            <div class="form-container">
+                <div class="form-line" id="search-from">
+                    <input type="search" id="search-bar" placeholder="Search For Pokemon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="pokemon-team-card">
-                <img src="./src/incons/Pokeball_remix.svg" alt="">
-                <div>
-                    <p>EMPTY</p>
-                </div>
+            <div class="searched-pokemon">
+                
             </div>
-            <div class="pokemon-team-card">
-                <img src="./src/incons/Pokeball_remix.svg" alt="">
-                <div>
-                    <p>EMPTY</p>
-                </div>
-            </div>
-            <div class="pokemon-team-card">
-                <img src="./src/incons/Pokeball_remix.svg" alt="">
-                <div>
-                    <p>EMPTY</p>
-                </div>
-            </div>
-            <div class="pokemon-team-card">
-                <img src="./src/incons/Pokeball_remix.svg" alt="">
-                <div>
-                    <p>EMPTY</p>
-                </div>
-            </div>
-        </div>
-        <div class="poke-container">
-            
-
+            <button class="load-more">
+                LOAD MORE
+            </button>
         </div>
         <ul class="contextMenu">
             <li class="detail-view"><a href="#"> View Details</a></li>
             <li class="team-add"><a href="#"> Add to Team </a></li>
         </ul>
     </main>
-    <footer>
-        <button class="load-more">
-            LOAD MORE
-        </button>
+    <footer class="container">
+        <p>© 2021 Pokemon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc.</p>
     </footer>
-
     <script src="./src/index.js"></script>
+    <script src="https://kit.fontawesome.com/7e3cb93b9b.js" crossorigin="anonymous"></script>
 </body>
 </html>

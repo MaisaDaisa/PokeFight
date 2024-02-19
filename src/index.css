@@ -1,46 +1,118 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
 :root {
-    --Erie-Black: #1E1E1E;
-    --Isabelline: #F6F0ED;
-    
+    --background-color : #F6F9FD;
+    --primary-color : #FEFFFE;
+    --secondary-color : #7C8485;
+    --red-color : #FE5250;
+    --text-color : #071636;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--Erie-Black);
-}
-
-
-
-.header-container {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    height: 100dvh;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+}   
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    margin: 2rem;
+}
+
+nav {
+    border-radius: 16rem;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--Erie-Black);
-    border: solid var(--Isabelline);  
-    border-radius: 0px 0px 20px 20px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
-    width: 100%;
-    z-index: 100;
+    padding: 1.5rem 2rem;
 }
-.header-container h1 {
-    color: var(--Isabelline);
-    font-size: 2rem;
+
+.navlink-container {
+    font-size: 1.5rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
+
+nav img {
+    width: 3rem;
+}
+
+nav li{
+    display: flex;
+    gap: 0.9rem;
+}
+
 main {
-    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: 30% 1fr ;
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
+
+footer {
+    justify-self: flex-end;
+    margin: 2rem;
+    text-align: center;
+}
+
+
+/* TEAM SECTION ------------------------------------*/
+.team {
+    text-align: center;
+    margin: 3rem;
+    margin-left: 0px;
+}
+.team h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+
+}
+.team-card {
+    height: 10rem;
+    margin-top: 2rem;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.team-card .poke-img{
+    height: 100%;
+}
+
+.team-card .poke-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
 /* FIGHT BUTTON --------------------------------------------------------------------------- */
 
 .fight-button {
@@ -52,11 +124,11 @@ main {
 
 .fight-button button {
     display: none;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 10px;
-    background-color: var(--Isabelline);
-    color: var(--Erie-Black);
+    background-color: var(--text-color);
+    color: var(--primary-color);
     font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
@@ -65,113 +137,120 @@ main {
 
 .fight-button button:hover {
     background-color: red;
-    color: var(--Isabelline);
+    color: var(--primary-color);
 }
 
-/* Pokemon Team -------------------------------------------------------------------------- */
 
-.team-container {
-    display: flex;
-    justify-content: center;
-}
-.team-container p {
-    font-weight: 700;
-}
-
-.pokemon-team-card {
-    width: 10rem;
-    border-radius: 20px;
-    background: var(--Isabelline);
+/* SEARCH SECTION ------------------------------------*/
+.selector {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
+
+}
+.form-container{
+    display: flex;;
+    gap: 2rem;
+    justify-content: center;
+
 }
 
-.pokemon-team-card img {
-    overflow: hidden;
-    height: 100%;
+.form-line {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.form-line input {
     width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 16rem;
+    border: none;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+.form-line i {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
 }
 
-/* Pokemon LISt -------------------------------------------------------------------------- */
-.poke-container {
+.searched-pokemon {
     display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(auto-fill, minmax(19%, 1fr));
-    padding-top: 3dvh;
-    background-color: var(--Erie-Black);
-    margin-top: px;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .poke-card {
-    width: 100%;
-    border-radius: 20px;
-    background: var(--Isabelline);
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-    
-}
-.pokecard-info {
-    gap: 20px;
-    align-self: flex-start;
-    margin: 20px;
-    margin-right: 0px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;;
-    align-items: center;
-}
-.pokecard-info p {
-    align-self: flex-start;
-}
-.poke-elements {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.pokecard-img {
-    margin: 20px;
-    margin-left: 0px;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.pokecard-img img { 
-    height: 100%;
-    width: 100%;
+    height: 10rem;
+    margin-top: 2rem;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    padding: 1rem;
+    text-align: center;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: var(--Erie-Black);
-    z-index: 100;
+.poke-card .poke-img{
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    top: -5rem;
 }
 
-footer button {
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--Isabelline);
-    color: var(--Erie-Black);
+.poke-card .poke-info {
+    position:relative;
+    bottom: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.poke-info p {
     font-size: 1.2rem;
     font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.poke-info h3 {
+    font-size: 1.5rem;
+    font-weight: 750;
+    color: var(--text-color);
+}
+.pokelement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.load-more {
+    align-self: center;
+    width: 20%;
+    padding: 1rem 2rem;
+    border-radius: 16rem;
+    border: none;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     cursor: pointer;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.75);
+}
+/* FOOTER SECTION ------------------------------------*/
+
+footer{
+    padding: 2rem;
 }
 
 /* CONTEXT MENU -------------------------------------------------------------------------- */
@@ -198,21 +277,22 @@ ul.contextMenu li{
     overflow: hidden;
     white-space: nowrap;
     padding: 12px 15px;
-    background-color: var(--Isabelline);
+    background-color: var(--primary-color);
 }
 
 ul.contextMenu li a{
     text-decoration: none;
-    color: var(--Erie-Black);
+    color: var(--text-color);
 }
 
 
 ul.contextMenu li:hover{
-    background-color: var(--Erie-Black);
+    background-color: var(--text-color);
 }
 
 ul.contextMenu li:hover a{
-    color: var(--Isabelline);
+    color: var(--primary-color);
 }
-  
-  
+
+
+
