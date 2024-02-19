@@ -172,11 +172,13 @@ async function displayMoves() {
 						updatePlayerButton();
 						await switchPokemon(true);
 						await healthBar(true, true);
+						await sleep(1000);
+						playPokeSound(playerTeam[activePlayer].cries.latest);
 						await DisplayText(
 							`Player switched to ${capitalizeFirstLetter(
 								playerTeam[activePlayer].name
 							)}`,
-							2000
+							3000
 						);
 						if (!playerTeam[lastChosen].isFainted) {
 							enemyTurn();
@@ -256,7 +258,7 @@ async function playWinSound() {
 
 async function playPokeSound(soundUrl) {
 	const audio = new Audio(soundUrl);
-	audio.volume = 0.02;
+	audio.volume = 0.05;
 	audio.play();
 }
 
@@ -271,7 +273,7 @@ async function playBattleMusic(action) {
 		battleAudio = new Audio("./src/audio/Battle.mp3");
 		battleAudio.className = "battle-audio";
 		battleAudio.loop = true;
-		battleAudio.volume = 0.01;
+		battleAudio.volume = 0.05;
 		battleAudio.play();
 	}
 	if (action === "pause" && battleAudio !== null) {
@@ -387,6 +389,7 @@ async function useAbility(id, fromPlayer) {
 		if (cheatCode === 1) {
 			damage = damage * 1000;
 		}
+		damage = damage.toFixed(0);
 		await DisplayText(
 			`Player's ${playerTeam[activePlayer].name} used ${playerMovesData[activePlayer][id].name}`,
 			3000
@@ -427,7 +430,7 @@ async function useAbility(id, fromPlayer) {
 
 		// CALCULATING DAMAGE
 		const divider = getDivider();
-		const damage = enemyMovesData[activeEnemy][id].power / divider;
+		const damage = (enemyMovesData[activeEnemy][id].power / divider).toFixed(0);
 		playerTeam[activePlayer].current_hp -= damage;
 		
 		// PLAYING SOUND

@@ -9,17 +9,29 @@ async function fetchPokemon(id) {
     display_pokemon(data)
 }
 
+async function fetchPokemonByName(name) {
+    const API_URL = `https://pokeapi.co/api/v2/pokemon/${name}`
+    const response = await fetch(API_URL)
+    try {
+        const data = await response.json()
+        display_pokemon(data)
+        getCards()
+    } catch (error) {
+        alert('No pokemon found, try again with a different name')
+    }
+}
+
 
 
 // DISPLAYING THE POKEMON DATA ----------------------------------------------
 const searched_pokemon = document.querySelector('.searched-pokemon')
+const loadMore = document.querySelector('.load-more')
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function display_pokemon(poke) {
-  
+async function display_pokemon(poke) {
         const poke_card = document.createElement('div')
         poke_card.classList.add('poke-card')
         poke_card.id = `poke-${poke.id}`
@@ -40,6 +52,7 @@ function display_pokemon(poke) {
 
 // LOOP POKEMONS -----------------------------------------------------------
 const LoadPokemon = async () => {
+    loadMore.style.display = 'none'
     const old = count+1
     count += 20
     for (let i = old; i <= count; i++) {
@@ -47,18 +60,58 @@ const LoadPokemon = async () => {
         await fetchPokemon(i)
     }
     getCards()
+    loadMore.style.display = 'inline-block'
 }
+
+
 
 LoadPokemon()
 let cards = document.querySelectorAll('.poke-card')
 
 // EVent Listeners ----------------------------------------------------------
 
-const loadMore = document.querySelector('.load-more')
 
 loadMore.addEventListener('click', () => {
     LoadPokemon()
 })
+
+const searchInput = document.getElementById('search-bar');
+const magnifyingGlass = document.querySelector('.fa-magnifying-glass')
+
+searchInput.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm == '') {
+            count = 0
+            searched_pokemon.innerHTML = ''
+            LoadPokemon()
+            console.log('empty')
+        } else {
+            console.log(searchTerm)
+            loadMore.style.display = 'none'
+            count = 0
+            searched_pokemon.innerHTML = ''
+            fetchPokemonByName(searchTerm.toLowerCase())
+        }
+    }
+});
+
+magnifyingGlass.addEventListener('click', () => {
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm == '') {
+        count = 0
+        searched_pokemon.innerHTML = ''
+        LoadPokemon()
+        console.log('empty')
+    } else {
+        console.log(searchTerm)
+        loadMore.style.display = 'none'
+        count = 0
+        searched_pokemon.innerHTML = ''
+        fetchPokemonByName(searchTerm.toLowerCase())
+    }
+})
+
 
 // Cards Event Listeners ----------------------------------------------------
 
@@ -114,6 +167,7 @@ addToTeam = () => {
             `
             team.push(id)
             if (team.length === 5) {
+                document.querySelector('.team h2').style.display = "none"
                 fight_button.style.display = "inline-block"
                 filled = true
             }
