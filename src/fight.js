@@ -69,7 +69,7 @@ const colours = {
 
 let playerTeam = JSON.parse(localStorage.getItem("playerTeam"));
 let enemyTeam = JSON.parse(localStorage.getItem("enemyTeam"));
-let canplay = true;
+let canplay = false;
 let activePlayer = 0;
 let activeEnemy = 0;
 let playerFaits = 0;
@@ -199,7 +199,8 @@ async function displayMoves() {
 
 	// DISPLAYING THE GAME HAS LOADED
 	await DisplayText(`GAME HAS LOADED`, 2000);
-	await DisplayText(`It's your turn!`, 3000);
+	await DisplayText(`It's your turn!`, 1000);
+	canplay = true;
 	
 }
 
@@ -294,7 +295,7 @@ async function healthBar(forPlayer, ifSwitched) {
 	const enemy_poke_name = document.querySelector(".enemy-name");
 	const player_hp_meter = player_health_bar.querySelector(".pokemon-hp-meter");
 	const enemy_hp_meter = enemy_health_bar.querySelector(".enemy-hp-meter");
-	let side_player_circle = document.getElementById("player-" + activePlayer);
+	let side_player_circle = document.querySelectorAll(".right-team li img")[activePlayer]
 
 	if (forPlayer) {
 		// GETTING INFO
@@ -316,13 +317,21 @@ async function healthBar(forPlayer, ifSwitched) {
 		// UPDATING INFO
 		player_max.innerHTML = "/" + playerTeam[activePlayer].max_hp;
 		player_hp_meter.style.width = player_hp_perc + "%";
-		const gradient = `linear-gradient(to top, var(--Health-Red) 0%, var(--Health-Red) ${
-			100 - player_hp_perc
-		}%, var(--Health-Green) ${player_hp_perc}%, var(--Health-Green) 100%);`;
 
-		// console.log(gradient)
-		// console.log(side_player_circle.style)
-		// side_player_circle.style.background = gradient
+
+
+
+		// HELP PLS
+		const gradient = `linear-gradient(180deg, #FC0504 ${player_hp_perc}%, #2cd829 ${player_hp_perc}%)`
+		console.log(gradient)
+		console.log(side_player_circle.style)
+		side_player_circle.style.backgroundColor = gradient
+
+
+
+
+
+
 
 		//CHANGING COLOUR
 		if (player_hp_perc <= 20) {
@@ -459,7 +468,7 @@ async function checkFainted() {
 		document.querySelector(".display-text p").innerText =
 			"Choose Another Pokemon!";
 		if (playerFaits === 5) {
-			await DisplayText("You have lost the battle", 10000);
+			await DisplayText("You have lost the battle", 7000);
 			returnHome();
 		}
 	}
@@ -476,8 +485,8 @@ async function checkFainted() {
 		if (enemyFaits === 5) {
 			playBattleMusic("pause");
 			playWinSound();
-			await DisplayText("You have won the battle", 10000);
-			// returnHome()
+			await DisplayText("You have won the battle", 7000);
+			returnHome()
 		} else {
 			console.log("Enemy Switched RIGHT NOW");
 			// Make ENEMY CHOOSE NEW POKEMON

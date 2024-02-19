@@ -112,14 +112,14 @@ ul {
 .top-team li {
     scale: 0.8;
     width: 100%;
-    background: linear-gradient(to top, var(--Health-Red) 0%, var(--Health-Red) 0%, var(--Health-Green) 0%, var(--Health-Green) 100%);
+    background-color: var(--Health-Green);
     border-radius: 50%;
 
 }
 .right-team li {
     scale: 0.8;
     width: 100%;
-    background: linear-gradient(to top, var(--Health-Red) 0%, var(--Health-Red) 0%, var(--Health-Green) 0%, var(--Health-Green) 100%);
+    background-color: var(--Health-Green);
     border-radius: 50%;
 }
 .player-pokemon{
@@ -197,7 +197,7 @@ ul {
     width: 15vw;
     padding: 1.5rem 2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 3rem;
     background: var(--My-Blue);
     color: var(--Isabelline);
     font-size: 0.8rem;

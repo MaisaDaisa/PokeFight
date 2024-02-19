@@ -24,53 +24,50 @@ const chosenPokemons = localdata.poke
 console.log(chosenPokemons)
 
 let chosenPokemonData = []
-async function fetchPokemon(id) {
+
+async function fetchPokemon(id, index) {
     const API_URL = `https://pokeapi.co/api/v2/pokemon/${id}`
     const response = await fetch(API_URL)
     const data = await response.json()
     chosenPokemonData.push(data)
     console.log(data)   
-    display_pokemon(data)
+    display_pokemon(data, index)
 }
-
 
 
 
 
 // DISPLAYING THE POKEMON DATA ----------------------------------------------
 
-const poke_container = document.querySelector('.poke-container')
+const team_card_container = document.querySelector('.team-card-container')
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function display_pokemon(poke) {
-    const poke_card = document.createElement('div')
-    poke_card.classList.add('poke-card')
-    poke_card.id = `poke-${poke.id}`
+function display_pokemon(poke, index) {
+    const team_card = document.querySelectorAll('.team-card')
+    const image = poke.sprites.front_default
+    team_card[index].querySelector('.poke-img').src = image
+    team_card[index].querySelector('.pokenum').textContent = `№ ${poke.id}`
+    team_card[index].querySelector('.pokename').textContent = capitalizeFirstLetter(poke.name)
     const types = poke.types.map(type => type.type.name)
-    poke_card.innerHTML = `
-    <div class="pokecard-info">
-        <p>#${poke.id }</p>
-        <h2>${capitalizeFirstLetter(poke.name)}</h2>
-        <div class="poke-elements">
-            ${types.map(type => `<img src="./src/incons/${type}_icon.svg" alt="${type + ' element'}">`).join('')}
-        </div>
-    </div>
-    <div class="pokecard-img">
-        <img src=${poke.sprites.front_default} alt="Pikachu">
-    </div>
-    `
-    poke_container.appendChild(poke_card) 
-
+    team_card[index].querySelector('.pokelement').innerHTML = types.map(
+        type => `<img src="./src/incons/${type}_icon.svg" alt="${type + ' element'}">`).join('')
 }
 
 const LoadWebsite = async () => {
     for (let i = 0; i < chosenPokemons.length; i++) {
-        await fetchPokemon(chosenPokemons[i])
+        await fetchPokemon(chosenPokemons[i], i)
     }
     console.log(chosenPokemonData)
+    if (localdata.isEnemy === 1) {
+        const title = document.querySelector('.team h2')
+        title.textContent = 'Enemy Team'
+        title.style.color = 'var(--primary-color)'
+        document.body.style.backgroundColor = '#6B1313'
+        document.querySelector('.team-card-container').classList.add('enemy')
+    }
     getMoves()
 }
 
@@ -81,6 +78,7 @@ LoadWebsite()
 fight = {}
 let chosenPokemonMoveID = []
 let indexPokemon = 0
+
 const moves_container = document.querySelector('.moves-container')
 
 async function fetchMove(api_url) {
@@ -96,11 +94,11 @@ function displayMove(move) {
         moveEl.classList.add('move-card')
         moveEl.id = `move-id-${move.id}`
         moveEl.innerHTML = `
-            <div class="move-col">
-                <h3>${move.name}</h3>
+            <div class="move-card-col">
+                <h3>${capitalizeFirstLetter(move.name)}</h3>
                 <p>${power} POW</p>
             </div>
-            <div class="move-col">
+            <div class="move-card-col">
                 <img src="./src/incons/${move.type.name}_icon.svg" alt="">
                 <p>${accuracy}% ACC</p>
             </div>
@@ -108,14 +106,14 @@ function displayMove(move) {
         moveEl.addEventListener('click', () => {
             moveChoose(moveEl, move.id)
         })
-        moveEl.style.backgroundColor = colours[move.type.name]
+        moveEl.style.background = `linear-gradient(110deg, ${colours[move.type.name] } 55%, var(--text-color) 55%)`
         moves_container.appendChild(moveEl)
     } 
 }
 
 function getMoves() {
-    const pokeContainerMulti = document.querySelectorAll('.poke-card')
-    pokeContainerMulti[indexPokemon].style.backgroundColor = 'var(--My-Blue)'
+    const team_cards= document.querySelectorAll('.team-card')
+    team_cards[indexPokemon].classList.add('selected')
     chosenPokemonData[indexPokemon].moves.forEach(move => {
         const url = move.move.url
         fetchMove(url)
@@ -126,10 +124,11 @@ function getMoves() {
 
 function moveChoose(moveEl, id) {
     if (indexPokemon < 5 && !chosenPokemonMoveID.includes(id)) {
-        moveEl.style.backgroundColor = 'var(--My-Red)'
+        moveEl.classList.add('selected')
         chosenPokemonMoveID.push(id)
     }
     if (chosenPokemonMoveID.length === 4 ) {
+        console.log(indexPokemon)
         fight[indexPokemon] = { id: chosenPokemonData[indexPokemon].id, 
             name: chosenPokemonData[indexPokemon].name, 
             max_hp: chosenPokemonData[indexPokemon].stats[0].base_stat, 
@@ -156,8 +155,10 @@ function moveChoose(moveEl, id) {
         }
         chosenPokemonMoveID = []
         console.log(fight)
-        poke_container.querySelectorAll('.poke-card')[indexPokemon].style.backgroundColor = 'var(--Isabelline)'
+        const team_cards= document.querySelectorAll('.team-card')
+        team_cards[indexPokemon].classList.remove('selected')
         indexPokemon++
+        console.log(indexPokemon)
         if (indexPokemon < 5) {
             moves_container.innerHTML = ''
             getMoves()
