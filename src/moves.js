@@ -106,6 +106,13 @@ function displayMove(move) {
 		moveEl.addEventListener("click", () => {
 			moveChoose(moveEl, move.id);
 		});
+
+		moveEl.addEventListener("contextmenu", (e) => {
+			e.preventDefault();
+			moveChoose(moveEl, move.id);
+			}
+		);
+
 		moveEl.style.background = `linear-gradient(110deg, ${
 			colours[move.type.name]
 		} 55%, var(--text-color) 55%)`;
