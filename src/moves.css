@@ -1,240 +1,228 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
 }
 
 @font-face {
-    font-family: PokeFont;
-    src: url(./PokemonGb-RAeo.ttf);
+	font-family: PokeFont;
+	src: url(./PokemonGb-RAeo.ttf);
 }
 
 :root {
-    --background-color : #F6F9FD;
-    --primary-color : #FEFFFE;
-    --secondary-color : #7C8485;
-    --red-color : #FE5250;
-    --text-color : #071636;
+	--background-color: #f6f9fd;
+	--primary-color: #fefffe;
+	--secondary-color: #7c8485;
+	--red-color: #fe5250;
+	--text-color: #071636;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--secondary-color);
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-}   
+	font-family: "Poppins", sans-serif;
+	background-color: var(--background-color);
+	color: var(--secondary-color);
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
 
 a {
-    text-decoration: none;
-    color: var(--secondary-color);
+	text-decoration: none;
+	color: var(--secondary-color);
 }
 
 li {
-    list-style: none;
+	list-style: none;
 }
 
 header {
-    margin: 2rem;
+	margin: 2rem;
 }
 
 nav {
-    border-radius: 16rem;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
+	border-radius: 16rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	background-color: var(--primary-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem 2rem;
 }
 
 .navlink-container {
-    font-size: 1.5rem;
-    font-weight: 700;
-    gap: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	font-size: 1.5rem;
+	font-weight: 700;
+	gap: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 nav img {
-    width: 3rem;
+	width: 3rem;
 }
 
-nav li{
-    display: flex;
-    gap: 0.9rem;
+nav li {
+	display: flex;
+	gap: 0.9rem;
 }
 
 main {
-    display: grid;
-    grid-template-columns: 30% 1fr ;
-    margin-left: 4rem;
-    margin-right: 4rem;
+	display: grid;
+	grid-template-columns: 30% 1fr;
+	margin-left: 4rem;
+	margin-right: 4rem;
 }
 
 footer {
-    justify-self: flex-end;
-    margin: 2rem;
-    text-align: center;
+	justify-self: flex-end;
+	margin: 2rem;
+	text-align: center;
 }
-
 
 /* TEAM SECTION ------------------------------------*/
 .team {
-    text-align: center;
-    margin: 3rem;
-    margin-left: 0px;
+	text-align: center;
+	margin: 3rem;
+	margin-left: 0px;
 }
 .team h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--text-color);
 }
 .team-card {
-    height: 10rem;
-    margin-top: 2rem;
-    position: relative;
-    border-radius: 3rem;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-    padding: 1.5rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
+	height: 10rem;
+	margin-top: 2rem;
+	position: relative;
+	border-radius: 3rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	background-color: var(--primary-color);
+	padding: 1.5rem;
+	text-align: center;
+	display: flex;
+	align-items: center;
 }
 
-.team-card .poke-img{
-    height: 100%;
+.team-card .poke-img {
+	height: 100%;
 }
 
 .team-card .poke-info {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
 }
 
 .poke-info p {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--secondary-color);
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--secondary-color);
 }
 
 .poke-info h3 {
-    font-size: 1.5rem;
-    font-weight: 750;
-    color: var(--text-color);
+	font-size: 1.5rem;
+	font-weight: 750;
+	color: var(--text-color);
 }
 .pokelement {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
 }
-
-
 
 /* MMENU SECTION ------------------------------------*/
 
 .moves-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(15rem, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(15rem, 1fr));
+	gap: 1rem;
+	margin-top: 2rem;
 }
 
 .move-card {
-    border-radius: 16rem;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-    padding: 1.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+	border-radius: 16rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	background-color: var(--primary-color);
+	padding: 1.5rem;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 .move-card-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 }
 .move-card-col:first-child {
-    width: 50%;
-    gap: 1rem;
+	width: 50%;
+	gap: 1rem;
 }
 .move-card h3 {
-    font-size: 1.5rem;
-    font-weight: 750;
-    color: var(--text-color);
+	font-size: 1.5rem;
+	font-weight: 750;
+	color: var(--text-color);
 }
 .move-card p {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--primary-color);
 }
 .move-card-col img {
-    width: 60%;
+	width: 60%;
 }
 
 .selected {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
-    border: 0.3rem solid var(--red-color);
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+	border: 0.3rem solid var(--red-color);
 }
-
 
 /* FOOTER SECTION ------------------------------------*/
 
-footer{
-    padding: 2rem;
+footer {
+	padding: 2rem;
 }
 
 /* CONTEXT MENU -------------------------------------------------------------------------- */
 .contextMenu {
-    display: none;
+	display: none;
 }
 
-ul.contextMenu{
-    border-radius: 5px;
-    list-style: none; 
-    position: absolute;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.2);
+ul.contextMenu {
+	border-radius: 5px;
+	list-style: none;
+	position: absolute;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-ul.contextMenu *{
-    transition:color .4s, background .4s;
+ul.contextMenu * {
+	transition: color 0.4s, background 0.4s;
 }
 
-
-  
-ul.contextMenu li{
-    min-width:100px;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 12px 15px;
-    background-color: var(--primary-color);
+ul.contextMenu li {
+	min-width: 100px;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 12px 15px;
+	background-color: var(--primary-color);
 }
 
-ul.contextMenu li a{
-    text-decoration: none;
-    color: var(--text-color);
+ul.contextMenu li a {
+	text-decoration: none;
+	color: var(--text-color);
 }
 
-
-ul.contextMenu li:hover{
-    background-color: var(--text-color);
+ul.contextMenu li:hover {
+	background-color: var(--text-color);
 }
 
-ul.contextMenu li:hover a{
-    color: var(--primary-color);
+ul.contextMenu li:hover a {
+	color: var(--primary-color);
 }
-
-
-

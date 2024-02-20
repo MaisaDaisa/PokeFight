@@ -203,21 +203,24 @@ async function displayMoves() {
 	await DisplayText(`GAME HAS LOADED`, 2000);
 	await DisplayText(`It's your turn!`, 1000);
 	canplay = true;
-	
 }
 
 displayMoves();
 let battleAudio = null;
 
-function updatePlayerButton() {
+async function updatePlayerButton() {
 	const player_abilities_button = document.querySelectorAll(
 		".player-abilities button"
 	);
 	player_abilities_button.forEach((el, index) => {
 		el.id = "move-" + index;
-		el.innerText = playerMovesData[activePlayer][index].name;
-		el.style.backgroundColor =
-			colours[playerMovesData[activePlayer][index].type];
+		const move_element = el.querySelector("img");
+		move_element.src = `./src/incons/${playerMovesData[activePlayer][index].type}_icon.svg`;
+		el.querySelector("h3").innerHTML =
+			playerMovesData[activePlayer][index].name;
+		const color = colours[playerMovesData[activePlayer][index].type];
+		// el.style.backgroundColor = `linear-gradient(110deg, ${color} 55%, var(--text-color) 55%);`
+		el.style.background = color;
 	});
 }
 
@@ -297,7 +300,8 @@ async function healthBar(forPlayer, ifSwitched) {
 	const enemy_poke_name = document.querySelector(".enemy-name");
 	const player_hp_meter = player_health_bar.querySelector(".pokemon-hp-meter");
 	const enemy_hp_meter = enemy_health_bar.querySelector(".enemy-hp-meter");
-	let side_player_circle = document.querySelectorAll(".right-team li img")[activePlayer]
+	let side_player_circle =
+		document.querySelectorAll(".right-team li img")[activePlayer];
 
 	if (forPlayer) {
 		// GETTING INFO
@@ -320,20 +324,11 @@ async function healthBar(forPlayer, ifSwitched) {
 		player_max.innerHTML = "/" + playerTeam[activePlayer].max_hp;
 		player_hp_meter.style.width = player_hp_perc + "%";
 
-
-
-
 		// HELP PLS
-		const gradient = `linear-gradient(180deg, #FC0504 ${player_hp_perc}%, #2cd829 ${player_hp_perc}%)`
-		console.log(gradient)
-		console.log(side_player_circle.style)
-		side_player_circle.style.backgroundColor = gradient
-
-
-
-
-
-
+		const gradient = `linear-gradient(180deg, #FC0504 ${player_hp_perc}%, #2cd829 ${player_hp_perc}%)`;
+		console.log(gradient);
+		console.log(side_player_circle.style);
+		side_player_circle.style.backgroundColor = gradient;
 
 		//CHANGING COLOUR
 		if (player_hp_perc <= 20) {
@@ -432,7 +427,7 @@ async function useAbility(id, fromPlayer) {
 		const divider = getDivider();
 		const damage = (enemyMovesData[activeEnemy][id].power / divider).toFixed(0);
 		playerTeam[activePlayer].current_hp -= damage;
-		
+
 		// PLAYING SOUND
 		if (divider === 5) {
 			playCriticalSound();
@@ -489,7 +484,7 @@ async function checkFainted() {
 			playBattleMusic("pause");
 			playWinSound();
 			await DisplayText("You have won the battle", 7000);
-			returnHome()
+			returnHome();
 		} else {
 			console.log("Enemy Switched RIGHT NOW");
 			// Make ENEMY CHOOSE NEW POKEMON

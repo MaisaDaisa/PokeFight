@@ -202,7 +202,8 @@ footer {
 }
 
 .poke-card {
-    height: 10rem;
+    width: 95%;
+    height: 11rem;
     margin-top: 2rem;
     position: relative;
     border-radius: 1rem;

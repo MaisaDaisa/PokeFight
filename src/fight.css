@@ -1,270 +1,308 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 @font-face {
-    font-family: PokeFont;
-    src: url(./PokemonGb-RAeo.ttf);
+	font-family: PokeFont;
+	src: url(./PokemonGb-RAeo.ttf);
 }
 
 :root {
-    --Erie-Black: #1E1E1E;
-    --Isabelline: #F6F0ED;
-    --My-Blue: #98ABEE;
-    --My-Red: #E78895;
-    --Health-Red: #FC0504;
-    --Health-Green: #2cd829;
-    
+	--Erie-Black: #1e1e1e;
+	--Isabelline: #f6f0ed;
+	--My-Blue: #98abee;
+	--My-Red: #e78895;
+	--Health-Red: #fc0504;
+	--Health-Green: #2cd829;
+	--background-color: #f6f9fd;
+	--primary-color: #fefffe;
+	--secondary-color: #7c8485;
+	--red-color: #fe5250;
+	--text-color: #071636;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-image: url('https://i.pinimg.com/736x/ee/f7/09/eef7095fc26e27190c4b691404d291c4.jpg');
-    background-size: cover;
-    font-family: PokeFont;
-    font-size: 1rem;
-    overflow: hidden
+	font-family: "Roboto", sans-serif;
+	background-image: url("https://i.pinimg.com/736x/ee/f7/09/eef7095fc26e27190c4b691404d291c4.jpg");
+	background-size: cover;
+	font-family: PokeFont;
+	font-size: 1rem;
+	overflow: hidden;
 }
 main {
-    width: 95vw;
-    height: 100dvh;
-    display: flex;
+	width: 95vw;
+	height: 100dvh;
+	display: flex;
 }
 ul {
-    list-style: none;
+	list-style: none;
 }
-
 
 /* ENEMY TEAM --------------------------*/
-.enemy-poke{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    height: 100dvh;
+.enemy-poke {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	height: 100dvh;
 }
 .top-team ul {
-    position: relative;
-    top: 0px;
-    right: 0px;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-
+	position: relative;
+	top: 0px;
+	right: 0px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
-.enemy-pokemon{
-    position: absolute;
-    top: 10dvh;
-    right: 15vw;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+.top-team li {
+	border: 0.3rem solid var(--text-color);
+	scale: 0.8;
+	width: 100%;
+	background-color: var(--Health-Green);
+	border-radius: 50%;
+}
+
+.top-team li:last-child {
+	cursor: pointer;
+}
+
+.enemy-pokemon {
+	position: absolute;
+	top: 10dvh;
+	right: 15vw;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
 }
 .enemy-pokemon img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 50%;
+	width: 500px;
+	height: 500px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 .hp-border {
-    margin-top: 0.5rem;
+	margin-top: 0.5rem;
 }
-
-
-
 
 /* PLAYER TEAM --------------------------*/
-.player-poke{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    height: 100dvh;
-
+.player-poke {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	height: 100dvh;
 }
 
-.right-team{
-    position: relative;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+.right-team {
+	position: relative;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 
-.right-team ul{
-    gap: 0.3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.top-team li {
-    scale: 0.8;
-    width: 100%;
-    background-color: var(--Health-Green);
-    border-radius: 50%;
-
+.right-team ul {
+	gap: 0.3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .right-team li {
-    scale: 0.8;
-    width: 100%;
-    background-color: var(--Health-Green);
-    border-radius: 50%;
+	border: 0.3rem solid var(--text-color);
+	cursor: pointer;
+	scale: 0.8;
+	width: 100%;
+	background-color: var(--Health-Green);
+	border-radius: 50%;
 }
-.player-pokemon{
-    overflow: hidden;
-    position: absolute;
-    bottom: -100px;
-    left: 100px;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+.player-pokemon {
+	overflow: hidden;
+	position: absolute;
+	bottom: -100px;
+	left: 100px;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
 }
 .player-pokemon img {
-    overflow: hidden;
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 50%;
+	overflow: hidden;
+	width: 500px;
+	height: 500px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 
 /* TEXT AREA -------------------------- */
-.display-text{
-    align-self: center;
-    width: 30vw;
-    flex-direction: column;
-    justify-content: flex-end;
-    display: flex;
+.display-text {
+	align-self: center;
+	width: 30vw;
+	flex-direction: column;
+	justify-content: flex-end;
+	display: flex;
 }
 .display-text p {
-    border-radius: 0.5rem;
-    border: #9c0000 solid 0.5rem;
-    padding: 1rem   ;
-    height: 13dvh;
-    background-color: antiquewhite;
-    font-size: 1rem;
-    color: var(--Erie-Black);
-    text-align: center;
-    margin: 1rem;
+	border-radius: 0.5rem;
+	border: #9c0000 solid 0.5rem;
+	padding: 1rem;
+	height: 13dvh;
+	background-color: antiquewhite;
+	font-size: 1rem;
+	color: var(--Erie-Black);
+	text-align: center;
+	margin: 1rem;
 }
 .display-text p span {
-    color: var(--My-Blue);
+	color: var(--My-Blue);
 }
 
 .enemy-display {
-    color: red
+	color: red;
 }
 
 /*  ABILITIES -------------------------- */
 .player-abilities {
-    align-self: flex-end;
-    margin: 1rem;
-    gap: 1rem;
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	align-self: flex-end;
+	margin: 1rem;
+	gap: 1rem;
+	flex-direction: row;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.enemy-name{
-    align-self: flex-end;
+.enemy-name {
+	align-self: flex-end;
 }
 .menu {
-    position: absolute;
-    display: flex;
-    right: 0px;
-    bottom: 0px;
+	position: absolute;
+	display: flex;
+	right: 0px;
+	bottom: 0px;
 }
+
+/* HP -------------------------- */
+.stats {
+	display: flex;
+	flex-direction: column;
+	border: 5px double black;
+	width: 20vw;
+	padding: 15px;
+	height: 100px;
+	background-color: var(--Isabelline);
+}
+.enemy-stats {
+	border-radius: 20px 0px 0px 20px;
+}
+.pokemon-stats {
+	border-radius: 0px 20px 20px 0px;
+}
+.enemy-name {
+	margin-right: 2rem;
+	align-self: flex-end;
+}
+.pokemon-name {
+	margin-left: 1.5rem;
+	align-self: flex-start;
+}
+h2 {
+	text-align: center;
+}
+.stage {
+	height: 170px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.enemy-picture {
+	transform: scale(2.3);
+}
+.pokemon-picture {
+	transform: scale(1.5);
+}
+.hp-meter {
+	display: flex;
+	align-items: flex-end;
+	background-color: var(--Health-Green);
+	height: 10px;
+	width: 100%;
+	border-radius: 10px;
+}
+.hp-border {
+	border: 3.12px solid black;
+	border-radius: 10px;
+	width: 99.9%;
+}
+.hp-counter {
+	margin-top: 0.1rem;
+	font-weight: 600;
+	font-size: 1.2rem;
+	font-family: Righteous;
+	position: relative;
+	left: 25px;
+}
+
+/* MOVES -------------------------- */
 
 .ability-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 .player-abilities button {
-    width: 15vw;
-    padding: 1.5rem 2rem;
-    border: none;
-    border-radius: 3rem;
-    background: var(--My-Blue);
-    color: var(--Isabelline);
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: PokeFont;
+	border: 0.3rem solid var(--text-color);
+	width: 15vw;
+	border-radius: 3rem;
+	font-size: 0.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-family: PokeFont;
 }
 
-/* HP -------------------------- */ 
-.stats {
-    display: flex;
-    flex-direction: column;
-    border: 5px double black;
-    width: 20vw;
-    padding: 15px;
-    height: 100px;
-    background-color: var(--Isabelline);
-  }
-  .enemy-stats {
-    border-radius: 20px 0px 0px 20px;;
-  }
-  .pokemon-stats {
-    border-radius: 0px 20px 20px 0px;
-  }
-  .enemy-name {
-    margin-right: 2rem;
-    align-self: flex-end;
-  }
-  .pokemon-name {
-    margin-left: 1.5rem;
-    align-self: flex-start;
-  }
-  h2 {
-    text-align: center;
-  }
-  .stage {
-    height: 170px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .enemy-picture {
-  transform: scale(2.3);
-  }
-  .pokemon-picture {
-    transform: scale(1.5);
-  }
-  .hp-meter {
-    display: flex;
-    align-items: flex-end;
-    background-color: var(--Health-Green); ;
-    height: 10px;
-    width: 100%;
-    border-radius: 10px;
-  }
-  .hp-border {
-    border: 3.12px solid black;
-    border-radius: 10px;
-    width: 99.9%;
-  }
-  .hp-counter {
-    margin-top: 0.1rem;
-    font-weight: 600;
-    font-size: 1.2rem;
-    font-family: Righteous;
-    position: relative;
-    left: 25px;
-  }
+.move-card {
+	border-radius: 16rem;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+	background-color: linear-gradient(110deg, #a8a77a 55%, var(--text-color) 55%);
+	padding: 1rem;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.move-card-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+.move-card-col:first-child {
+	width: 70%;
+	gap: 1rem;
+}
+.move-card h3 {
+	font-size: 1rem;
+	font-weight: 750;
+	color: var(--text-color);
+}
+.move-card p {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--primary-color);
+}
+.move-card-col img {
+	width: 150%;
+}
