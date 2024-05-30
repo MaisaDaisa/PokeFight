@@ -1,6 +1,6 @@
 # PokeFight
 
-A Pokemon fighting game. You have the ability to choose 5 Pokemon's for yourself and your opponent with their abilities. Keep in mind the abilities only do damage equivilent to the power level
+It's a Pokemon fighting game. You can choose 5 Pokemon for yourself and your opponent with their abilities. Keep in mind the abilities only do damage equivalent to the power level
 
 ## What is used?
 
@@ -20,7 +20,7 @@ Clone the project
   git clone https://github.com/MaisaDaisa/Spotify-Web
 ```
 
-and simply open the `index.html` file in the browser
+and open the `index.html` file in the browser
 
 
 
@@ -41,5 +41,5 @@ https://poke-fighting.netlify.app/
 
 ![image](https://github.com/MaisaDaisa/PokeFight/assets/129600723/e72e3ee5-3619-4dee-a8e4-d53244b01af0)
 
-PSTTTT! if you reached this part of the `README`, you can click on your enemies rightest pokemon on the top right of the screen to activate cheat code.
+PST! if you reach this part of the `README`, you can click on your enemy's rightest pokemon on the top right of the screen to activate the cheat code.
 
