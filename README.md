@@ -26,6 +26,7 @@ and open the `index.html` file in the browser
 
 ## Demo
 
+Keep in mind, to choose pokemons you have to ** RIGHT CLICK ** on the pokemon cards
 https://poke-fighting.netlify.app/
 
 ## Known Issues
