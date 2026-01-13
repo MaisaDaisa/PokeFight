@@ -17,7 +17,7 @@ https://pokeapi.co/
 Clone the project
 
 ```bash
-  git clone https://github.com/MaisaDaisa/Spotify-Web
+  git clone https://github.com/MaisaDaisa/PokeFight
 ```
 
 and open the `index.html` file in the browser
